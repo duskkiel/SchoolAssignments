@@ -1,0 +1,52 @@
+# Peyton Kiel
+# CS 1400-002
+# Assn 8
+# Description:  This program will play a game that allows a user to choose a door and then whether he/she stays with it
+#               or switches. It will run 100000 times and display the wins and win percentage.
+
+while True:
+    import random
+
+    iterations = 100000
+
+    wins = 0.0
+    losses = 0.0
+    print("There are 3 doors. You choose Door 2 and then Door 1 is opened to show there was a goat behind it.")
+    print("There are now 2 doors left. 1 of them has another goat, and the other a car.")
+    choice = input("Would you like to 'stay' with your Door 1 or 'switch'? --> ")
+
+    for i in range(0, iterations):
+        n = random.randrange(0, 3)
+        if choice in ("switch", "Switch"):
+            if n == 0:
+                wins += 1
+            elif n == 1:
+                wins += 1
+            elif n == 2:
+                losses += 1
+        elif choice in ("stay", "Stay"):
+            if n == 0:
+                wins += 1
+            elif n == 1:
+                losses += 1
+            elif n == 2:
+                losses += 1
+
+    print("Out of " + str(iterations) + " repetitions of the game, the results are:")
+    percentage = (wins/iterations) * 100
+    print("Wins: " + str(wins))
+    print("Losses: " + str(losses))
+    print("You won " + str(percentage) + "% of the time")
+
+    while True:
+        answer = input("Play again? (y/n): ")
+        if answer in ("Y", "y", "n", "N"):
+            break
+        print("Invalid input.")
+    if answer == "y":
+        continue
+    if answer == "Y":
+        continue
+    else:
+        print(' (")> ')
+        break
