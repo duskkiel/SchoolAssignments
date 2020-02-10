@@ -1,0 +1,37 @@
+class Account:
+    def __init__(self, id=0, balance=100, annualInterestRate=0):
+        self.__id = id
+        self.__balance = balance
+        self.__annualInterestRate = annualInterestRate
+
+    def getId(self):
+        return self.__id
+
+    def getBalance(self):
+        return self.__balance
+
+    def getAnnualInterestRate(self):
+        return self.__annualInterestRate
+
+    def setId(self, id):
+        self.__id = id
+
+    def setBalance(self, balance):
+        self.__balance = balance
+
+    def setAnnualInterestRate(self, annualInterestRate):
+        self.__getAnnualInterestRate = annualInterestRate
+
+    def getMonthlyInterestRate(self):
+        return self.__annualInterestRate / 12
+
+    def getMonthlyInterest(self):
+        return self.__balance * self.getMonthlyInterestRate()
+
+    def withdraw(self):
+        withdrawAmmount = eval(input("How much would you like to withdraw?: "))
+        self.__balance = self.__balance - withdrawAmmount
+
+    def deposit(self):
+        depositAmmount = eval(input("How much would you like to deposit?: "))
+        self.__balance = self.__balance + depositAmmount
