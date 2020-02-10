@@ -1,0 +1,32 @@
+# Peyton Kiel
+# CS 1400-002
+# Assn6
+# This program will determine that pay information of an employee and then display it.
+
+name = input("Enter employee's name: ")
+weeklyHours = eval(input("Enter the number of hours worked in a week: "))
+hourlyPay = eval(input("Enter the hourly pay rate: "))
+federalTax = eval(input("Enter the federal tax withholding rate (ex. 0.12): "))
+stateTax = eval(input("Enter the state tax withholding rate (ex. 0.06): "))
+
+grossPay = weeklyHours * hourlyPay
+totalFederalTax = grossPay * federalTax
+totalStateTax = grossPay * stateTax
+totalDeductions = totalStateTax + totalFederalTax
+netPay = grossPay - totalDeductions
+
+final = "\n" + (format(name + " Pay Information", ">35"))
+final += "\n"
+final += "\n" + (format("Pay", "^40"))
+final += "\n" + (format("Hours Worked:", ">27")) + format(str(weeklyHours), ">12")
+final += "\n" + (format("Pay Rate: $", ">29")) + format(hourlyPay, ">10.2f")
+final += "\n" + (format("Gross Pay: $", ">29")) + format(grossPay, ">10.2f")
+final += "\n"
+final += "\n" + (format("Deductions", "^40"))
+final += "\n" + (format("Federal Withholding: $", ">29")) + format(totalFederalTax, ">10.2f")
+final += "\n" + (format("State Withholding: $", ">29")) + format(totalStateTax, ">10.2f")
+final += "\n" + (format("Total Deductions: $", ">29")) + format(totalDeductions, ">10.2f")
+final += "\n"
+final += "\n" + (format("Net Pay: $", ">29")) + format(netPay, ">10.2f")
+
+print(final)
