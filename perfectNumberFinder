@@ -1,0 +1,31 @@
+# Peyton Kiel
+# CS 1400-002
+# Assn 8
+# Description: This program will run through every number between 1 and 10,000 and determine the perfect numbers. It
+#              will then display the number of loops and the time the program runs.
+
+import time
+
+start_time = time.time()
+maxValue = 10000
+num = 1
+iteration = 0
+totalPrimes = 0
+
+for num in range(num, maxValue):
+    divisor = 1
+    total = 0
+    for divisor in range(divisor, (num // 2) + 1):
+        if not num % divisor:
+            total += divisor
+        iteration += 1
+    if total == num:
+        print(num, "is a perfect number.")
+        totalPrimes += 1
+    if totalPrimes == 4:
+        break
+
+totalTime = round(time.time() - start_time, 2)
+
+print("The program looped", iteration, "times.")
+print("The program took", totalTime, "seconds to run.")
