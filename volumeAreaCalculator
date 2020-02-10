@@ -1,0 +1,19 @@
+# Peyton Kiel
+# CS1400 - 002
+# Assn 4
+# This program will compute the surface area and volume of any given lengths of a cuboid.
+
+print("Welcome to the Cuboid Calculator!")
+print("Please enter values in feet.")
+
+length = eval(input ("Enter the length: "))
+width = eval(input ("Enter the width: "))
+height = eval(input ("Enter the height: "))
+
+volume = (length * width * height)
+surfaceArea = (2 * (length * width) + 2 * (width * height) + 2 * (length * height))
+
+print("The dimensions of the cuboid are", length, "X", width, "X", height)
+print("The volume of the cuboid is", volume)
+print("The surface area of the cuboid is", surfaceArea)
+
