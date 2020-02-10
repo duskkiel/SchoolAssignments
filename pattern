@@ -1,0 +1,98 @@
+import turtle
+import random
+
+
+def reset():
+    turtle.reset()
+    turtle.speed(0)
+
+
+def setup():
+    turtle.speed(0)
+    turtle.screensize(1000, 800)
+
+
+def drawRectanglePattern(centerX, centerY, offset, width, height, count, rotation):
+    recNumber = 0
+    turtle.pu()
+    turtle.goto(centerX, centerY)
+    while recNumber < count:
+        setRandomColor()
+        turtle.lt(rotation)
+        turtle.fd(offset)
+        turtle.pd()
+        drawRectangle(width, height)
+        turtle.pu()
+        turtle.bk(offset)
+        recNumber += 1
+
+
+def drawRectangle(width, height):
+    turtle.fd(width)
+    turtle.rt(90)
+    turtle.fd(height)
+    turtle.rt(90)
+    turtle.fd(width)
+    turtle.rt(90)
+    turtle.fd(height)
+    turtle.rt(90)
+
+
+def drawCirclePattern(centerX, centerY, offset, radius, count):
+    circNumber = 0
+    turtle.pu()
+    turtle.goto(centerX, centerY)
+    while circNumber < count:
+        setRandomColor()
+        turtle.pu()
+        turtle.fd(offset + radius)
+        turtle.pd()
+        turtle.circle(radius)
+        turtle.pu()
+        turtle.bk(offset + radius)
+        turtle.lt(360 / count)
+        circNumber += 1
+
+
+def drawSuperPattern(num):
+    superCount = 0
+    while superCount < num:
+        patternNumber = random.randint(0, 2)
+        if patternNumber is 0:
+            centerX = random.randint(-500, 500)
+            centerY = random.randint(-400, 400)
+            offset = random.randint(-20, 50)
+            radius = random.randint(40, 80)
+            count = random.randint(10, 60)
+            drawCirclePattern(centerX, centerY, offset, radius, count)
+            superCount += 1
+        if patternNumber is 1:
+            centerX = random.randint(-500, 500)
+            centerY = random.randint(-400, 400)
+            offset = random.randint(-20, 50)
+            height = random.randint(40, 150)
+            width = random.randint(20, 100)
+            count = random.randint(10, 100)
+            rotation = random.randint(4, 40)
+            drawRectanglePattern(centerX, centerY, offset, width, height, count, rotation)
+            superCount += 1
+
+
+def setRandomColor():
+    randomColor = random.randint(0, 6)
+    if randomColor is 0:
+        turtle.color("red")
+    if randomColor is 1:
+        turtle.color("orange")
+    if randomColor is 2:
+        turtle.color("yellow")
+    if randomColor is 3:
+        turtle.color("green")
+    if randomColor is 4:
+        turtle.color("blue")
+    if randomColor is 5:
+        turtle.color("purple")
+
+
+def done():
+    turtle.done()
