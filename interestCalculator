@@ -1,0 +1,16 @@
+# Peyton Kiel
+# CS 1400-002
+# Assn5
+# Description: This program will evaluate your account value after putting in the
+#              interest rate and length of investment.
+
+investment = eval(input("Enter investment amount: "))
+interest = eval(input("Enter annual intrest rate: "))
+years = eval(input("Enter number of years: "))
+
+monthlyInterest = (interest / 100)
+months = (years * 12)
+
+valueFinal = (investment * ((1 + monthlyInterest/months) ** months))
+
+print("Accumulated value is", valueFinal)
