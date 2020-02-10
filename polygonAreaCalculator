@@ -1,0 +1,14 @@
+# Peyton Kiel
+# CS 1400-002
+# This program will determine the area of any polygon, based upon the length and number of sides the user inputs.
+
+from math import tan, pow
+
+number = eval(input("Enter the number of sides: "))
+length = eval(input("Enter the length of one of the sides: "))
+PI = 3.14159
+
+tangent = tan(PI / number)
+area = (number * pow(length, 2)) / (4 * tangent)
+
+print("The area of the", number, "sided polygon is", round(area, 5))
