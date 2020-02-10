@@ -1,0 +1,78 @@
+import turtle
+
+def drawRectangle(width, height):
+    rectangleWidth = width / 8
+    rectangleHeight = height / 8
+    turtle.showturtle()
+    turtle.begin_fill()
+    turtle.fd(rectangleWidth)
+    turtle.left(90)
+    turtle.fd(rectangleHeight)
+    turtle.left(90)
+    turtle.fd(rectangleWidth)
+    turtle.left(90)
+    turtle.fd(rectangleHeight)
+    turtle.left(90)
+    turtle.end_fill()
+
+
+def drawAllRectangles(width, height):
+    count = 0
+    while count <= 31:
+        drawRectangle(width, height)
+        count += 1
+        turtle.showturtle()
+        turtle.fd(width / 4)
+        if count == 4:
+            turtle.left(90)
+            turtle.fd(height / 8)
+            turtle.right(90)
+            turtle.backward(width - (width / 8))
+        if count == 8:
+            turtle.left(90)
+            turtle.fd(height / 8)
+            turtle.right(90)
+            turtle.backward(width + (width / 8))
+        if count == 12:
+            turtle.left(90)
+            turtle.fd(height / 8)
+            turtle.right(90)
+            turtle.backward(width - (width / 8))
+        if count == 16:
+            turtle.left(90)
+            turtle.fd(height / 8)
+            turtle.right(90)
+            turtle.backward(width + (width / 8))
+        if count == 20:
+            turtle.left(90)
+            turtle.fd(height / 8)
+            turtle.right(90)
+            turtle.backward(width - (width / 8))
+        if count == 24:
+            turtle.left(90)
+            turtle.fd(height / 8)
+            turtle.right(90)
+            turtle.backward(width + (width / 8))
+        if count == 28:
+            turtle.left(90)
+            turtle.fd(height / 8)
+            turtle.right(90)
+            turtle.backward(width - (width / 8))
+
+
+def drawChessboard(startX, startY, width=250, height=250):
+    turtle.showturtle
+    turtle.pu()
+    turtle.goto(startX, startY)
+    turtle.pd()
+    turtle.fd(width)
+    turtle.left(90)
+    turtle.fd(height)
+    turtle.left(90)
+    turtle.fd(width)
+    turtle.left(90)
+    turtle.fd(height)
+    turtle.left(90)
+    drawAllRectangles(width, height)
+    turtle.hideturtle()
+    turtle.done()
