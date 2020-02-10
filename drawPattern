@@ -1,0 +1,61 @@
+# Peyton Kiel
+# CS 1400
+# Assn 10
+# Description: This program will draw a bunch of circles and rectangles depending on your parameters.
+
+import pattern
+
+
+def main():
+    pattern.setup()
+    playAgain = True
+
+    while playAgain:
+        print("Choose a mode")
+        print("1) Rectangle Pattern")
+        print("2) Circle Pattern")
+        print("3) Super Pattern")
+        mode = eval(input("Which mode do you want to play? 1, 2 or 3: "))
+
+        if mode == 1:
+            centerX, centerY = eval(input("Enter the center point of the pattern(x, y): "))
+            offset = eval(input("Enter the offset: "))
+            height = eval(input("Enter the height: "))
+            width = eval(input("Enter the width: "))
+            count = eval(input("Enter the number of rectangles to draw: "))
+            rotation = eval(input("Enter the rotation: "))
+            pattern.drawRectanglePattern(centerX, centerY, offset, width, height, count, rotation)
+
+        elif mode == 2:
+            centerX, centerY = eval(input("Enter the center position(x, y): "))
+            offset = eval(input("Enter the offset: "))
+            radius = eval(input("Enter the radius: "))
+            count = eval(input("Enter the count: "))
+            pattern.drawCirclePattern(centerX, centerY, offset, radius, count)
+
+        elif mode == 3:
+            num = eval(input("Enter the number of shapes you want: "))
+            if num == "":
+                pattern.drawSuperPattern()
+            else:
+                pattern.drawSuperPattern(num)
+
+        print("Do you want to play again?")
+        print("1) Yes, and keep drawings")
+        print("2) Yes, and clear drawings")
+        print("3) No, I am all done")
+        response = eval(input("Choose 1, 2, or 3: "))
+
+        if response is 1:
+            playAgain = True
+        if response is 2:
+            pattern.reset()
+            playAgain = True
+        if response is 3:
+            break
+
+    print("Thanks for playing!")
+    pattern.done()
+
+
+main()
