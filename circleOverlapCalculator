@@ -1,0 +1,41 @@
+# Peyton Kiel
+# CS 1400-002
+# Assn7
+# Description: This program is designed to allow the user to input the center and radius of two different circles. It
+#              will then determine whether the circles overlap or if one of them is inside the other.
+
+import turtle
+
+x1, y1 = eval(input("Enter the center of the first circle x, y: "))
+radiusFirst = eval(input("Enter the radius of the first circle: "))
+x2, y2 = eval(input("Enter the center of the second circle x, y: "))
+radiusSecond = eval(input("Enter the radius of the second circle: "))
+
+turtle.penup()
+turtle.goto(x1, y1 - radiusFirst)
+turtle.pendown()
+turtle.circle(radiusFirst)
+
+turtle.penup()
+turtle.goto(x2, y2 - radiusSecond)
+turtle.pendown()
+turtle.circle(radiusSecond)
+
+
+turtle.penup()
+turtle.goto(x1 - 70, y1 - radiusFirst - 20)
+turtle.pendown()
+
+distance = ((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) ** 0.5
+if distance <= radiusFirst - radiusSecond and radiusFirst > radiusSecond:
+    turtle.write("The second circle is in the first circle.")
+elif distance <= radiusSecond - radiusFirst and radiusSecond > radiusFirst:
+    turtle.write("The first circle is in the second circle.")
+elif distance <= radiusFirst + radiusSecond:
+    turtle.write("The circles overlap.")
+else:
+    turtle.write("The two circles are not overlapping.")
+
+turtle.hideturtle()
+
+turtle.done()
