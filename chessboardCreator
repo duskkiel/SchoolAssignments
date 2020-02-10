@@ -1,0 +1,22 @@
+# Peyton Kiel
+# CS 1400
+# Assn9
+# Description: This program will allow the user to enter in dimensions for a chessboard and the corner for where it
+#              starts.
+
+from chessboard import drawChessboard
+
+def main():
+    startX, startY = eval(input("Enter the starting point of the bottom left corner of the chessboard (x, y): "))
+    width = input("Enter the chessboard width: ")
+    height = input("Enter the chessboard height: ")
+    if width == "" and height == "":
+        drawChessboard(startX, startY)
+    elif height == "":
+        drawChessboard(startX, startY, width=eval(width))
+    elif width == "":
+        drawChessboard(startX, startY, height=eval(height))
+    else:
+        drawChessboard(startX, startY, eval(width), eval(height))
+
+main()
