@@ -1,0 +1,39 @@
+from account import Account
+
+
+def main():
+    userId = eval(input("Enter the ID number: "))
+    startBalance = eval(input("Enter the starting balance: "))
+    interestRate = eval(input("Enter the annual interest rate(ex. 0.07): "))
+    done = False
+    account = Account(userId, startBalance, interestRate)
+    while not done:
+        print("(1): Display ID" + "\n" + "(2): Display Balance" + "\n" + "(3): Display Annual Interest Rate" + "\n"
+              + "(4): Display Monthly Interest Rate" + "\n" + "(5): Display Monthly Interest" + "\n"
+              + "(6): Withdraw Money" + "\n" + "(7): Deposit Money" + "\n" + "(8): Exit")
+        action = eval(input("Enter number for your action: "))
+        if action == 1:
+            print("ID: ", account.getId())
+        elif action == 2:
+            print("Balance: $", account.getBalance())
+        elif action == 3:
+            print("Annual Interest Rate: ", account.getAnnualInterestRate() * 100, "%")
+        elif action == 4:
+            print("Monthly Interest Rate: ", account.getMonthlyInterestRate() * 100, "%")
+        elif action == 5:
+            print("Monthly Interest: $", account.getMonthlyInterest())
+        elif action == 6:
+            account.withdraw()
+            print("Withdraw successful. New balance is: $", account.getBalance())
+        elif action == 7:
+            account.deposit()
+            print("Deposit successful. New balance is: $", account.getBalance())
+        elif action == 8:
+            break
+        else:
+            print("Invalid input.")
+
+    print("Have a good day!")
+
+
+main()
