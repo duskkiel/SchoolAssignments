@@ -1,0 +1,31 @@
+# Peyton Kiel
+# CS 1400-002
+# Assn7
+# Description: This program will allow the user to input either rock, paper, or scissors and the computer will randomly
+#              choose one and then display the winner.
+
+import random
+
+userChoice = eval(input("Enter a  number to represent one of the choices [Rock(0), Paper(1), Scissors(2)]: "))
+computerChoice = random.randint(0, 2)
+
+if userChoice == computerChoice:
+    print("It's a draw!")
+
+elif userChoice == 0 and computerChoice == 1:
+    print("You chose rock. Computer chose paper. You lose!")
+elif userChoice == 0 and computerChoice == 2:
+    print("You chose rock. Computer chose scissors. You win!")
+
+elif userChoice == 1 and computerChoice == 2:
+    print("You chose paper. Computer chose scissors. You lose!")
+elif userChoice == 1 and computerChoice == 0:
+    print("You chose paper. Computer chose rock. You win!")
+
+elif userChoice == 2 and computerChoice == 0:
+    print("You chose scissors. Computer chose rock. You lose!")
+elif userChoice == 2 and computerChoice == 1:
+        print("You chose scissors. Computer chose paper. You win!")
+        
+else:
+    print("Error; number not recognized. Immediate disqualification.")
